@@ -1,12 +1,12 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import Link from "next/link";
 import Post from "../../../components/Post";
 import { sortByDate } from "../../../utils";
 import { POSTS_PER_PAGE } from "../../../config";
+import Pagination from "../../../components/Pagination";
 
-export default function BlogPage({ posts, numPage, currentPage }) {
+export default function BlogPage({ posts, numPages, currentPage }) {
   return (
     <div>
       <h1 className="text-5xl border-b4 p-5 font-bold">Blog</h1>
@@ -15,6 +15,7 @@ export default function BlogPage({ posts, numPage, currentPage }) {
           <Post key={index} post={post} />
         ))}
       </div>
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </div>
   );
 }
@@ -49,7 +50,7 @@ export const getStaticProps = async ({ params }) => {
       frontmatter,
     };
   });
-  const numPage = Math.ceil(files.length / POSTS_PER_PAGE);
+  const numPages = Math.ceil(files.length / POSTS_PER_PAGE);
   const pageIndex = page - 1;
   const orderedPost = posts
     .sort(sortByDate)
@@ -57,7 +58,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       posts: orderedPost,
-      numPage,
+      numPages,
       currentPage: page,
     },
   };
