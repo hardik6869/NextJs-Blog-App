@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import Link from "next/link";
-import Post from "../components/post";
+import Post from "../components/Post";
 import { sortByDate } from "../utils";
 
 export default function Home({ posts }) {
