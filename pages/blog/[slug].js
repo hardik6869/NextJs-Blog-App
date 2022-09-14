@@ -2,8 +2,8 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import Link from "next/link";
-import CategoryLabel from "../../components/CategoryLabel";
 import { marked } from "marked";
+import CategoryLabel from "@/components/CategoryLabel";
 
 const PostPage = ({ frontmatter, content, slug }) => {
   const { title, category, date, cover_image, author, author_image } =

@@ -2,8 +2,8 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import Link from "next/link";
-import Post from "../components/Post";
-import { sortByDate } from "../utils";
+import Post from "@/components/Post";
+import { sortByDate } from "@/utils/index";
 
 export default function Home({ posts }) {
   return (
@@ -39,7 +39,7 @@ export const getStaticProps = () => {
   });
   return {
     props: {
-      posts: posts.sort(sortByDate).slice(0, 6),
+      posts: posts.sort(sortByDate),
     },
   };
 };
