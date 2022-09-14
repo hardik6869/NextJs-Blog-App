@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "./Header";
+import Search from "./Search";
 
 const Layout = ({ title, keywords, description, children }) => {
   return (
@@ -10,6 +11,7 @@ const Layout = ({ title, keywords, description, children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <Search />
       <main className="container mx-auto my-7">{children}</main>
     </div>
   );
