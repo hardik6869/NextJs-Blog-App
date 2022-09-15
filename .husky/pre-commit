@@ -2,4 +2,3 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run cache-posts && git add cache/data.js
-npm run cache-posts && git add cache/data.js
